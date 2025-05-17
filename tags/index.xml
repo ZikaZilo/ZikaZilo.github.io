@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Tags on Vislio</title>
-        <link>https://vislio.top/tags/</link>
-        <description>Recent content in Tags on Vislio</description>
+        <title>Tags on 星河拾光</title>
+        <link>//localhost:1313/tags/</link>
+        <description>Recent content in Tags on 星河拾光</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vislio.top/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Aristotle</title>
-        <link>https://vislio.top/tags/aristotle/</link>
-        <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+        <language>zh-cn</language>
+        <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>工具</title>
+        <link>//localhost:1313/tags/%E5%B7%A5%E5%85%B7/</link>
+        <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://vislio.top/tags/aristotle/</guid>
+        <guid>//localhost:1313/tags/%E5%B7%A5%E5%85%B7/</guid>
         <description></description>
         </item>
         <item>
-        <title>Europe</title>
-        <link>https://vislio.top/tags/europe/</link>
-        <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+        <title>Python</title>
+        <link>//localhost:1313/tags/python/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://vislio.top/tags/europe/</guid>
+        <guid>//localhost:1313/tags/python/</guid>
         <description></description>
         </item>
         <item>
-        <title>Plato</title>
-        <link>https://vislio.top/tags/plato/</link>
-        <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
+        <title>编程</title>
+        <link>//localhost:1313/tags/%E7%BC%96%E7%A8%8B/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://vislio.top/tags/plato/</guid>
+        <guid>//localhost:1313/tags/%E7%BC%96%E7%A8%8B/</guid>
         <description></description>
         </item>
         <item>
-        <title>Basic</title>
-        <link>https://vislio.top/tags/basic/</link>
-        <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
+        <title>基础</title>
+        <link>//localhost:1313/tags/%E5%9F%BA%E7%A1%80/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://vislio.top/tags/basic/</guid>
+        <guid>//localhost:1313/tags/%E5%9F%BA%E7%A1%80/</guid>
         <description></description>
         </item>
         <item>
-        <title>Kotlin</title>
-        <link>https://vislio.top/tags/kotlin/</link>
-        <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
+        <title>通识</title>
+        <link>//localhost:1313/tags/%E9%80%9A%E8%AF%86/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://vislio.top/tags/kotlin/</guid>
+        <guid>//localhost:1313/tags/%E9%80%9A%E8%AF%86/</guid>
         <description></description>
         </item>
         <item>
-        <title>Algorithm</title>
-        <link>https://vislio.top/tags/algorithm/</link>
-        <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+        <title>英国</title>
+        <link>//localhost:1313/tags/%E8%8B%B1%E5%9B%BD/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://vislio.top/tags/algorithm/</guid>
+        <guid>//localhost:1313/tags/%E8%8B%B1%E5%9B%BD/</guid>
         <description></description>
         </item>
         

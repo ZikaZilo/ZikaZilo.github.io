@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本篇文章主要介绍Python变量定义的基础知识">
+<title>Python Basic 01 变量定义</title>
+
+<link rel='canonical' href='//localhost:1313/p/program-python-basic-01-variable/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python Basic 01 变量定义">
+<meta property='og:description' content="本篇文章主要介绍Python变量定义的基础知识">
+<meta property='og:url' content='//localhost:1313/p/program-python-basic-01-variable/'>
+<meta property='og:site_name' content='星河拾光'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='python' /><meta property='article:published_time' content='2025-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='//localhost:1313/p/program-python-basic-01-variable/cover.jpeg' />
+<meta name="twitter:title" content="Python Basic 01 变量定义">
+<meta name="twitter:description" content="本篇文章主要介绍Python变量定义的基础知识"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='//localhost:1313/p/program-python-basic-01-variable/cover.jpeg' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/star_hu_d436cf163e44922b.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="//localhost:1313/">星河拾光</a></h1>
+            <h2 class="site-description">做一点简单的编程记录。</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#python变量的基本概念">Python变量的基本概念</a></li>
+    <li><a href="#变量的命名规则">变量的命名规则</a></li>
+    <li><a href="#变量赋值机制">变量赋值机制</a></li>
+    <li><a href="#变量类型推断">变量类型推断</a></li>
+    <li><a href="#特殊变量">特殊变量</a></li>
+    <li><a href="#作用域规则">作用域规则</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/program-python-basic-01-variable/">
+                <img src="/p/program-python-basic-01-variable/cover_hu_c4622b3436aeb8d8.jpeg"
+                        srcset="/p/program-python-basic-01-variable/cover_hu_c4622b3436aeb8d8.jpeg 800w, /p/program-python-basic-01-variable/cover_hu_1cc0e71254efdd9d.jpeg 1600w"
+                        width="800" 
+                        height="533" 
+                        loading="lazy"
+                        alt="Featured image of post Python Basic 01 变量定义" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" >
+                编程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/program-python-basic-01-variable/">Python Basic 01 变量定义</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            本篇文章主要介绍Python变量定义的基础知识
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 01, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="python变量的基本概念">Python变量的基本概念
+</h2><p>在Python中，<strong>变量</strong>是用来存储数据的“标签”或“名字”，它指向内存中的某个对象 (◕‿◕✿)</p>
+<ul>
+<li><strong>核心特点</strong>：
+<ul>
+<li>无需声明类型（动态类型语言）</li>
+<li>通过赋值自动创建变量</li>
+<li>变量本身没有类型，它指向的对象有类型</li>
+</ul>
+</li>
+</ul>
+<p>比如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>      <span class="c1"># 整数  </span>
+</span></span><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;DeepSeek&#34;</span>  <span class="c1"># 字符串  </span>
+</span></span><span class="line"><span class="cl"><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>   <span class="c1"># 浮点数  </span>
+</span></span><span class="line"><span class="cl"><span class="n">is_cool</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># 布尔值  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="变量的命名规则">变量的命名规则
+</h2><p>Python变量命名需遵守以下规则 (•̀ᴗ•́)و：</p>
+<ol>
+<li>
+<p><strong>合法字符</strong>：字母、数字、下划线（但不能以数字开头）</p>
+<ul>
+<li>正确：<code>user_name</code>, <code>total_count2</code></li>
+<li>错误：<code>2nd_place</code>（数字开头）、<code>user-name</code>（含连字符）</li>
+</ul>
+</li>
+<li>
+<p><strong>区分大小写</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>  
+</span></span><span class="line"><span class="cl"><span class="n">Age</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># 这是另一个变量！</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>避免关键字</strong>：<br>
+不能使用<code>if</code>、<code>for</code>、<code>while</code>等Python保留字 (╯°□°)╯︵ ┻━┻</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="err">= &#34;</span><span class="nc">CS101</span><span class="s2">&#34;  # 语法错误！</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>风格建议（PEP 8）</strong>：</p>
+<ul>
+<li>变量名推荐小写 + 下划线（snake_case）：<code>student_name</code></li>
+<li>常量全大写：<code>MAX_SIZE = 100</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="变量赋值机制">变量赋值机制
+</h2><p>Python的变量是<strong>对象的引用</strong>，而非存储数据的容器 (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+<ul>
+<li>
+<p><strong>示例</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>  
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>    <span class="c1"># b也指向10这个对象  </span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>   <span class="c1"># 现在a指向新对象20，b仍指向10  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># 输出：10  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>多重赋值</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;hello&#34;</span><span class="p">,</span> <span class="kc">True</span>  <span class="c1"># 同时赋值多个变量  </span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 所有变量指向同一个对象  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="变量类型推断">变量类型推断
+</h2><p>虽然不需要声明类型，但对象有明确类型 (๑•̀ㅂ•́)و✧：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="mi">42</span>          <span class="c1"># &lt;class &#39;int&#39;&gt;  </span>
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;DeepSeek&#34;</span> <span class="c1"># &lt;class &#39;str&#39;&gt;  </span>
+</span></span><span class="line"><span class="cl"><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>   <span class="c1"># &lt;class &#39;list&#39;&gt;  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以用<code>type()</code>函数检查类型：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>  <span class="c1"># 输出：&lt;class &#39;int&#39;&gt;  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="特殊变量">特殊变量
+</h2><ul>
+<li>
+<p><strong>删除变量</strong>：用<code>del</code>释放引用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">temp</span> <span class="o">=</span> <span class="mi">100</span>  
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">temp</span>  <span class="c1"># 移除变量名  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>  <span class="c1"># 报错：NameError  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>动态类型</strong>：变量可随时指向不同类型</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">stuff</span> <span class="o">=</span> <span class="mi">42</span>      <span class="c1"># 现在是int  </span>
+</span></span><span class="line"><span class="cl"><span class="n">stuff</span> <span class="o">=</span> <span class="s2">&#34;答案&#34;</span>  <span class="c1"># 瞬间变成str  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="作用域规则">作用域规则
+</h2><p>变量的“可见范围”由其定义位置决定 (ﾉ´ヮ`)ﾉ*: ･ﾟ</p>
+<ul>
+<li><strong>局部变量</strong>：函数内定义，仅在函数内有效</li>
+<li><strong>全局变量</strong>：模块级定义，全局可访问（但函数内修改需声明<code>global</code>）</li>
+</ul>
+<p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">global_var</span> <span class="o">=</span> <span class="s2">&#34;我是全局的&#34;</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">local_var</span> <span class="o">=</span> <span class="s2">&#34;我是局部的&#34;</span>  
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">global_var</span><span class="p">)</span>  <span class="c1"># 可以访问全局变量  </span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">new_var</span>     <span class="c1"># 声明为全局变量  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">new_var</span> <span class="o">=</span> <span class="mi">100</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">test</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">local_var</span><span class="p">)</span>  <span class="c1"># 报错：local_var未定义  </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="总结">总结
+</h2><p>总结一下 (￣^￣)ゞ：</p>
+<ul>
+<li>Python变量是<strong>名字到对象的绑定</strong></li>
+<li>命名要合法且风格统一</li>
+<li>类型灵活但需注意作用域</li>
+</ul>
+<p>试着玩转变量吧～ ヾ(≧▽≦*)o</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/python/">Python</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/program-python-basic-02-function/">
+        
+        
+            <div class="article-image">
+                <img src="/p/program-python-basic-02-function/prog-python-02-function-cover.fb23d8397f6377b92741e47cf18ffe5f.fb23d8397f6377b92741e47cf18ffe5f_hu_9103f8ccf946184c.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python Basic 02 函数定义"
+                        data-key="program python basic 02 function" 
+                        data-hash="md5-&#43;yPYOX9jd7knQeR88Y/&#43;Xw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python Basic 02 函数定义</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/program-python-basic-03-if/">
+        
+        
+            <div class="article-image">
+                <img src="/p/program-python-basic-03-if/prog-python-03-if-cover.fb23d8397f6377b92741e47cf18ffe5f.fb23d8397f6377b92741e47cf18ffe5f_hu_9103f8ccf946184c.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python Basic 03 分支语句"
+                        data-key="program python basic 03 if" 
+                        data-hash="md5-&#43;yPYOX9jd7knQeR88Y/&#43;Xw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python Basic 03 分支语句</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/program-python-basic-04-for/">
+        
+        
+            <div class="article-image">
+                <img src="/p/program-python-basic-04-for/prog-python-04-for-cover.fb23d8397f6377b92741e47cf18ffe5f.fb23d8397f6377b92741e47cf18ffe5f_hu_9103f8ccf946184c.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python Basic 04 循环语句"
+                        data-key="program python basic 04 for" 
+                        data-hash="md5-&#43;yPYOX9jd7knQeR88Y/&#43;Xw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python Basic 04 循环语句</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/program-python-basic-05-string/">
+        
+        
+            <div class="article-image">
+                <img src="/p/program-python-basic-05-string/prog-python-05-string.fb23d8397f6377b92741e47cf18ffe5f.fb23d8397f6377b92741e47cf18ffe5f_hu_9103f8ccf946184c.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python Basic 05 字符串处理"
+                        data-key="program python basic 05 string" 
+                        data-hash="md5-&#43;yPYOX9jd7knQeR88Y/&#43;Xw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python Basic 05 字符串处理</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/program-python-basic-06-list/">
+        
+        
+            <div class="article-image">
+                <img src="/p/program-python-basic-06-list/prog-python-06-list.fb23d8397f6377b92741e47cf18ffe5f.fb23d8397f6377b92741e47cf18ffe5f_hu_9103f8ccf946184c.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python Basic 06 列表处理"
+                        data-key="program python basic 06 list" 
+                        data-hash="md5-&#43;yPYOX9jd7knQeR88Y/&#43;Xw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python Basic 06 列表处理</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 星河拾光
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.43204e7d716d80585381d5a1377fcb933fe2e478a4baf5797a1fe024c0a8a9d2.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

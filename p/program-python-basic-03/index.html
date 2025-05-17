@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本篇文章主要介绍Python分支结构的基础知识">
+<title>Python Basic 02 分支结构</title>
+
+<link rel='canonical' href='http://localhost:1313/p/program-python-basic-03/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python Basic 02 分支结构">
+<meta property='og:description' content="本篇文章主要介绍Python分支结构的基础知识">
+<meta property='og:url' content='http://localhost:1313/p/program-python-basic-03/'>
+<meta property='og:site_name' content='星河拾光'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-03-06T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-03-06T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/prog-python-03-if-cover.jpeg' />
+<meta name="twitter:title" content="Python Basic 02 分支结构">
+<meta name="twitter:description" content="本篇文章主要介绍Python分支结构的基础知识"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/prog-python-03-if-cover.jpeg' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/star_hu_d436cf163e44922b.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">星河拾光</a></h1>
+            <h2 class="site-description">做一点简单的编程记录。</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#1-python分支结构概述-๑ㅂو">1. Python分支结构概述 (๑•̀ㅂ•́)و✧</a></li>
+        <li><a href="#2-基本分支结构">2. 基本分支结构</a>
+          <ol>
+            <li><a href="#21-最简单的if语句">2.1 最简单的if语句</a></li>
+            <li><a href="#22-if-else结构">2.2 if-else结构</a></li>
+            <li><a href="#23-if-elif-else结构">2.3 if-elif-else结构</a></li>
+          </ol>
+        </li>
+        <li><a href="#3-嵌套分支结构">3. 嵌套分支结构</a></li>
+        <li><a href="#4-条件表达式">4. 条件表达式</a></li>
+        <li><a href="#5-布尔运算与分支">5. 布尔运算与分支</a></li>
+        <li><a href="#6-特殊值判断">6. 特殊值判断</a></li>
+        <li><a href="#7-使用技巧与小贴士">7. 使用技巧与小贴士</a></li>
+        <li><a href="#8-实际应用小案例">8. 实际应用小案例</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/program-python-basic-03/">
+                
+                    <img src="/prog-python-03-if-cover.jpeg" loading="lazy" alt="Featured image of post Python Basic 02 分支结构" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/python/" >
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/program-python-basic-03/">Python Basic 02 分支结构</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            本篇文章主要介绍Python分支结构的基础知识
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 06, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h3 id="1-python分支结构概述-๑ㅂو">1. Python分支结构概述 (๑•̀ㅂ•́)و✧
+</h3><p>Python中的分支结构主要通过<strong>条件语句</strong>实现，它能让程序根据不同的条件选择性地执行代码块。在Python中，主要使用<code>if</code>、<code>elif</code>和<code>else</code>关键字来构建分支逻辑，就像人生中的选择题一样，程序会根据条件判断选择不同的道路前进呢！(◕‿◕✿)</p>
+<h3 id="2-基本分支结构">2. 基本分支结构
+</h3><h4 id="21-最简单的if语句">2.1 最简单的if语句
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">条件表达式</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 条件为True时执行的代码块</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;x大于5呢！&#34;</span><span class="p">)</span>  <span class="c1"># 这个会被执行 ╰(*°▽°*)╯</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="22-if-else结构">2.2 if-else结构
+</h4><p>当需要处理两种情况时：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">条件表达式</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 条件为True时执行的代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 条件为False时执行的代码</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;成年啦！可以进入~&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;抱歉，未成年不能进入哦 (；′⌒`)&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="23-if-elif-else结构">2.3 if-elif-else结构
+</h4><p>当有多种可能性时：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">条件1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 满足条件1时执行</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">条件2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 满足条件2时执行</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 其他情况执行</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;优秀！٩(๑❛ᴗ❛๑)۶&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;良好~ (￣▽￣)~*&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;及格... 再接再厉！&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;不及格啊啊啊 (ﾟДﾟ*)ﾉ&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-嵌套分支结构">3. 嵌套分支结构
+</h3><p>有时候需要在条件分支中再嵌套条件判断：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">外层条件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">内层条件</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 代码块</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 代码块</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 代码块</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="mi">15</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;大于10&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;而且是偶数呢！&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;但是是奇数哟~&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;不大于10 (╯︵╰,)&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-条件表达式">4. 条件表达式
+</h3><p>在Python中可以使用条件表达式（类似其他语言的三目运算符）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">值1</span> <span class="k">if</span> <span class="n">条件</span> <span class="k">else</span> <span class="n">值2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">max_val</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="k">else</span> <span class="n">y</span>  <span class="c1"># 获取较大值</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5-布尔运算与分支">5. 布尔运算与分支
+</h3><p>可以使用逻辑运算符组合多个条件：</p>
+<ul>
+<li><code>and</code>：与</li>
+<li><code>or</code>：或</li>
+<li><code>not</code>：非</li>
+</ul>
+<p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">22</span>
+</span></span><span class="line"><span class="cl"><span class="n">height</span> <span class="o">=</span> <span class="mi">175</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">&gt;=</span> <span class="mi">170</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;符合参军条件！(•̀ᴗ•́)و&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="6-特殊值判断">6. 特殊值判断
+</h3><p>在Python中，一些特殊值会被视为False：</p>
+<ul>
+<li><code>False</code></li>
+<li><code>None</code></li>
+<li>数值<code>0</code></li>
+<li>空序列：<code>&quot;&quot;</code>、<code>[]</code>、<code>()</code></li>
+<li>空映射：<code>{}</code></li>
+</ul>
+<p>可以利用这个特性简化判断：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;名字为空哦！(⊙ˍ⊙)&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="7-使用技巧与小贴士">7. 使用技巧与小贴士
+</h3><ol>
+<li><strong>代码风格</strong>：Python依赖缩进，一定要保持一致的缩进（通常4个空格）</li>
+<li><strong>执行效率</strong>：条件判断会从上到下依次执行，将最可能满足的条件放在前面可以提高效率</li>
+<li><strong>比较运算符</strong>：
+<ul>
+<li><code>==</code>：等于</li>
+<li><code>!=</code>：不等于</li>
+<li><code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>：大小比较</li>
+<li><code>is</code>：判断对象是否相同（比较内存地址）</li>
+<li><code>in</code>：判断元素是否在序列中</li>
+</ul>
+</li>
+</ol>
+<p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="s2">&#34;green&#34;</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;找到绿色啦！(★ω★)&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="8-实际应用小案例">8. 实际应用小案例
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 简单的计算器</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;简易计算器启动~ (=´ω｀=)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">num1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入第一个数字：&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">operator</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入运算符(+ - * /)：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">num2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入第二个数字：&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">operator</span> <span class="o">==</span> <span class="s2">&#34;+&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">operator</span> <span class="o">==</span> <span class="s2">&#34;-&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">operator</span> <span class="o">==</span> <span class="s2">&#34;*&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">operator</span> <span class="o">==</span> <span class="s2">&#34;/&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">num2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;错误：除数不能为0！(╯‵□′)╯︵┻━┻&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;错误：无效的运算符！Σ( ° △ °|||)︴&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;计算结果：</span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>分支结构是Python编程的基础呢！熟练掌握它们可以让你的程序更加&quot;聪明&quot;和灵活 (๑•̀ㅂ•́)و✧ 记住多多练习不同的分支场景，遇到问题随时问我哦~ (づ￣3￣)づ╭❤～</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Mar 06, 2022 00:00 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/program-python-basic-01-variable/">
+        
+        
+            <div class="article-image">
+                <img src="/p/program-python-basic-01-variable/cover.fb23d8397f6377b92741e47cf18ffe5f.fb23d8397f6377b92741e47cf18ffe5f_hu_9103f8ccf946184c.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python Basic 01 Variable"
+                        data-key="program python basic 01 Variable" 
+                        data-hash="md5-&#43;yPYOX9jd7knQeR88Y/&#43;Xw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python Basic 01 Variable</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/program-python-basic-02-function/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/prog-python-02-function-cover.jpeg" loading="lazy" data-key="program python basic 02 Function" data-hash="/prog-python-02-function-cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python Basic 02 Fucntion</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 星河拾光
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.43204e7d716d80585381d5a1377fcb933fe2e478a4baf5797a1fe024c0a8a9d2.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
